@@ -1,8 +1,18 @@
 from django.forms.forms import Form
 from django.shortcuts import render,redirect
 from .models import gpu,cpu,power,hard,ram,fan,MOTHERBOARD,keybordandmouse,etc
-from .forms import adding_gpu_form ,adding_cpu_form,adding_power_form,adding_hard_form,adding_MOTHERBOARD_form,adding_fan_form,adding_MOTHERBOARD_form,adding_ram_form
+from .forms import adding_gpu_form ,adding_cpu_form,adding_power_form,adding_etc_form,adding_hard_form,adding_MOTHERBOARD_form,adding_fan_form,adding_MOTHERBOARD_form,adding_ram_form
 from django.contrib import messages
+from django.shortcuts import render
+#404
+def page_not_found_view(request, exception):
+    return render(request, '404.html', status=404)
+
+#home page
+def home_page(request):
+    return render(request, 'home.html')
+
+
 
 # Create your views here.
 def list_stuffs(request):
@@ -132,7 +142,6 @@ def update_gpu(request,table,id): #ok
             messages.success(request,"item has been updated successfully")
             return redirect('list_stuffs')
         else:
-            messages.warning(request, 'some things went wrong try again')
             return render (request, 'gpu_edite.html' ,{'form':form , 'gpuone':gpuone} )
 
     if table=='cpu':
@@ -143,7 +152,6 @@ def update_gpu(request,table,id): #ok
             messages.success(request,"item has been updated successfully")
             return redirect('cpu_list')
         else:
-            messages.warning(request, 'some things went wrong try again')
             return render (request, 'gpu_edite.html' ,{'form':form , 'gpuone':gpuone} )
 
     if table=='power':
@@ -154,7 +162,6 @@ def update_gpu(request,table,id): #ok
             messages.success(request,"item has been updated successfully")
             return redirect('power_list')
         else:
-            messages.warning(request, 'some things went wrong try again')
             return render (request, 'gpu_edite.html' ,{'form':form , 'gpuone':gpuone} )
 
     if table=='hard':
@@ -165,7 +172,6 @@ def update_gpu(request,table,id): #ok
             messages.success(request,"item has been updated successfully")
             return redirect('hard_list')
         else:
-            messages.warning(request, 'some things went wrong try again')
             return render (request, 'gpu_edite.html' ,{'form':form , 'gpuone':gpuone} )
 
     if table=='MOTHERBOARD':
@@ -176,7 +182,6 @@ def update_gpu(request,table,id): #ok
             messages.success(request,"item has been updated successfully")
             return redirect('motherboard_list')
         else:
-            messages.warning(request, 'some things went wrong try again')
             return render (request, 'gpu_edite.html' ,{'form':form , 'gpuone':gpuone} )
 
     if table=='fan':
@@ -187,7 +192,6 @@ def update_gpu(request,table,id): #ok
             messages.success(request,"item has been updated successfully")
             return redirect('fan_list')
         else:
-            messages.warning(request, 'some things went wrong try again')
             return render (request, 'gpu_edite.html' ,{'form':form , 'gpuone':gpuone} )
 
     if table=='ram':
@@ -198,7 +202,6 @@ def update_gpu(request,table,id): #ok
             messages.success(request,"item has been updated successfully")
             return redirect('ram_list')
         else:
-            messages.warning(request, 'some things went wrong try again')
             return render (request, 'gpu_edite.html' ,{'form':form , 'gpuone':gpuone} )    
 
     if table=='keybordandmouse':
@@ -209,7 +212,6 @@ def update_gpu(request,table,id): #ok
             messages.success(request,"item has been updated successfully")
             return redirect('keybordandmouse_list')
         else:
-            messages.warning(request, 'some things went wrong try again')
             return render (request, 'gpu_edite.html' ,{'form':form , 'gpuone':gpuone} ) 
 
     if table=='etc':
@@ -220,7 +222,6 @@ def update_gpu(request,table,id): #ok
             messages.success(request,"item has been updated successfully")
             return redirect('etc_list')
         else:
-            messages.warning(request, 'some things went wrong try again')
             return render (request, 'gpu_edite.html' ,{'form':form , 'gpuone':gpuone} ) 
 
 

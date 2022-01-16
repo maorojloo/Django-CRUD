@@ -13,49 +13,142 @@
     
     
 <head>
-{%if titlee.tt2%}
-     <title>{{titlee.tt2}}</title>
-{%else%}
-    <title>mmd-blog</title>
-{%endif%}
+
+    <title>Store</title>
+
     
 </head>
 <body>
     <!--header-->
-    <header class="header-fixed">
 
-        <div class="header-limiter">
-    
-            <h1><a href="#">mmd<span>blog</span></a></h1>
-    
-            <nav>
-                <a href="/blog" >blog</a>
-                <a href="#" class="selected">****</a>
-                <a href="/admin">admin</a>
-                <a href="blog/about">About</a>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    		<!--<div class="container-fluid px-md-5">
+			
+				</div>
+				<div class="col-md-4 d-flex">
+					<div class="social-media">
+		    		<p class="mb-0 d-flex">
+		    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
+		    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
+		    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
+		    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>
+		    		</p>
+	        </div>
+				</div>
+			</div>
+		</div>-->
+		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container-fluid">
+	    
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="fa fa-bars"></span> Menu
+	      </button>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav m-auto">
+	        	<li class="nav-item active"><a href="#" class="nav-link">Home</a></li>
 
 
-                
+	        	<!--statrt of header items -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="{% url  'list_stuffs' %}" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">gpu</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown04">
+              	<a class="dropdown-item" href="{% url  'add_gpu' 'gpu' %}">add gpu</a>
+        
+              </div>
+            </li>
+            
+            
+<li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="{% url  'cpu_list' %}" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">cpu</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown04">
+              	<a class="dropdown-item" href="{% url  'add_gpu' 'cpu' %}">add cpu</a>
+        
+              </div>
+            </li>
+            
+            
+<li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="{% url  'power_list' %}" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">power</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown04">
+              	<a class="dropdown-item" href="{% url  'add_gpu' 'power' %}">add power</a>
+        
+              </div>
+            </li>
+            
+            
+<li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="{% url  'hard_list' %}" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">hard</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown04">
+              	<a class="dropdown-item" href="{% url  'add_gpu' 'hard' %}">add hard</a>
+        
+              </div>
+            </li>
+            
+            
+<li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="{% url  'MOTHERBOARD_list' %}" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">MOTHERBOARD</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown04">
+              	<a class="dropdown-item" href="{% url  'add_gpu' 'MOTHERBOARD' %}">add MOTHERBOARD</a>
+        
+              </div>
+            </li>
+            
+            
+<li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="{% url  'fan_list' %}" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">fan</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown04">
+              	<a class="dropdown-item" href="{% url  'add_gpu' 'fan' %}">add fan</a>
+        
+              </div>
+            </li>
+            
+            
+<li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="{% url  'ram_list' %}" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ram</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown04">
+              	<a class="dropdown-item" href="{% url  'add_gpu' 'ram' %}">add ram</a>
+        
+              </div>
+            </li>
+            
+            
+<li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="{% url  'keybordandmouse_list' %}" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">keybordandmouse</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown04">
+              	<a class="dropdown-item" href="{% url  'add_gpu' 'keybordandmouse' %}">add keybordandmouse</a>
+        
+              </div>
+            </li>
+            
+            
+<li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="{% url  'etc_list' %}" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">etc</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown04">
+              	<a class="dropdown-item" href="{% url  'add_gpu' 'etc' %}">add etc</a>
+        
+              </div>
+            </li>
+            <!--end of header items-->
 
-                {% if user.is_authenticated%}
-                <a href="/profile">profile</a>
-                {% else %}
-                <a href="/register">register</a>
-                {% endif %}
 
 
 
-                {% if user.is_authenticated%}
-                <a href="/logout">logout</a>
-                {% else %}
-                <a href="/login">login</a>
-                {% endif %}    
-            </nav>
-    
-        </div>
-    
-    </header>
-    
+
+
+	        	<li class="nav-item"><a href="#" class="nav-link">Work</a></li>
+	        	<li class="nav-item"><a href="#" class="nav-link">Blog</a></li>
+	          <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+    <script src=" {%  static  'stuffs/js/bootstrap.min.js'  %} "></script>
+     <script src="{%  static  'stuffs/js/jquery.min.js'  %}"></script>
+     <script src="{%  static  'stuffs/js/main.js'  %}"></script>
+     <script src="{%  static  'stuffs/js/popper.js'  %}"></script>
     <!--headre-->
 <!--msg-->
 
@@ -70,21 +163,27 @@
           
 <!--msg-->
 <!----------------container-------------------->
-    <dev calss='container'>
+<div >
+    <dev calss='container-s'>
     {% block content%}{%endblock%}
-</dev>
+    </dev>
+  </div>
 <!----------------container-------------------->
 
 <!-- Site footer -->
+<div  >
 <footer class="site-footer">
     <div class="container">
       <div class="row">
         <div class="col-sm-12 col-md-6">
           <h6>About</h6>
-          <p class="text-justify">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative  to help the upcoming programmers with the code. Scanfcode focuses on providing the most efficient code or snippets as the code wants to be simple. We will help programmers build up concepts in different programming languages that include C, C++, Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android, SQL and Algorithm.</p>
+          <p class="text-justify">it's just a simple site ti manage store</p>
         </div>
 
+        <h6 align="center" >project source<a href="https://github.com/maorojloo/Django-CRUD" target="blank">https://github.com/maorojloo/Django-CRUD</a></h6><br/>
+        
         <div class="col-xs-6 col-md-3">
+          <!--
           <h6>Categories</h6>
           <ul class="footer-links">
             <li><a href="http://scanfcode.com/category/c-language/">C</a></li>
@@ -95,7 +194,8 @@
             <li><a href="http://scanfcode.com/category/templates/">Templates</a></li>
           </ul>
         </div>
-
+        -->
+        <!--
         <div class="col-xs-6 col-md-3">
           <h6>Quick Links</h6>
           <ul class="footer-links">
@@ -106,14 +206,14 @@
             <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
           </ul>
         </div>
+        -->
       </div>
       <hr>
     </div>
     <div class="container">
       <div class="row">
         <div class="col-md-8 col-sm-6 col-xs-12">
-          <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by 
-       <a href="#">Scanfcode</a>.
+          <p class="copyright-text">Copyright &copy; 2022 
           </p>
         </div>
 
@@ -127,6 +227,7 @@
         </div>
       </div>
     </div>
+  </div>
 </footer>
 <!--bootstarp -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>

@@ -126,9 +126,29 @@ class adding_ram_form(forms.ModelForm):
         model=ram
         fields=['ramtype','ramsize','new','issue','countt','etc']
 
+     
+class adding_etc_form(forms.ModelForm):
+    
+    new= forms.CharField(required=False)
+    issue= forms.CharField(required=False)
+    etc= forms.CharField(required=False)
+    
+    class Meta:
+        model=etc
+        fields=['name','new','issue','countt','etc']
 
 
 
+
+class adding_etc_form(forms.ModelForm):
+    
+    new= forms.CharField(required=False)
+    issue= forms.CharField(required=False)
+    etc= forms.CharField(required=False)
+    
+    class Meta:
+        model=keybordandmouse
+        fields=['keybordormouse','vgaorusb','issue','countt','etc']
 
 
 
