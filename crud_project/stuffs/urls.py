@@ -1,8 +1,8 @@
 from django.urls import path
 from django.urls.resolvers import URLPattern
 from .views import list_stuffs , add_gpu ,update_gpu ,delete_gpu,gpu_plusone,gpu_minusone,cpu_list
-from .views import power_list,hard_list,fan_list,ram_list,etc_list,keybordandmouse_list,MOTHERBOARD_list,home_page
-
+from .views import etc_list,keybordandmouse_list,MOTHERBOARD_list,home_page
+from .views import power_list,hard_list,fan_list,ram_list
 
 
 urlpatterns = [
@@ -27,5 +27,8 @@ urlpatterns = [
     path('minusone/<str:table>/<int:id>',gpu_minusone,name='gpu_minusone'),
     ###################################################################################
     path('add/<str:table>/',add_gpu,name='add_gpu'),
+    ##################################################################################
+   
+    
 ]
 handler404 = "stuffs.views.page_not_found_view"

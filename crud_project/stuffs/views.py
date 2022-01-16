@@ -4,49 +4,66 @@ from .models import gpu,cpu,power,hard,ram,fan,MOTHERBOARD,keybordandmouse,etc
 from .forms import adding_gpu_form ,adding_cpu_form,adding_power_form,adding_etc_form,adding_hard_form,adding_MOTHERBOARD_form,adding_fan_form,adding_MOTHERBOARD_form,adding_ram_form
 from django.contrib import messages
 from django.shortcuts import render
+
+from django.contrib.auth.decorators import login_required
+
+
+
+
+
 #404
 def page_not_found_view(request, exception):
     return render(request, '404.html', status=404)
 
 #home page
+@login_required(login_url='/login/') #redirect when user is not logged in
 def home_page(request):
     return render(request, 'home.html')
 
 
 
 # Create your views here.
+@login_required(login_url='/login/') #redirect when user is not logged in
 def list_stuffs(request):
     gpus = gpu.objects.all()
     return render(request,'gpu.html',{'gpus':gpus})
 #lisitg cpus
+@login_required(login_url='/login/') #redirect when user is not logged in
 def cpu_list(request):
     cpus = cpu.objects.all()
     return render(request,'cpu.html',{'cpus':cpus})
 
+@login_required(login_url='/login/') #redirect when user is not logged in
 def power_list(request):
     cpus = power.objects.all()
     return render(request,'power.html',{'cpus':cpus})
 
+@login_required(login_url='/login/') #redirect when user is not logged in
 def hard_list(request):
     cpus = hard.objects.all()
     return render(request,'hard.html',{'cpus':cpus})
 
+@login_required(login_url='/login/') #redirect when user is not logged in
 def MOTHERBOARD_list(request):
     cpus = MOTHERBOARD.objects.all()
     return render(request,'MOTHERBOARD.html',{'cpus':cpus})
 
+@login_required(login_url='/login/') #redirect when user is not logged in
 def fan_list(request):
     cpus = fan.objects.all()
     return render(request,'fan.html',{'cpus':cpus})
 
+@login_required(login_url='/login/') #redirect when user is not logged in
 def ram_list(request):
     cpus = ram.objects.all()
     return render(request,'ram.html',{'cpus':cpus})
 
+@login_required(login_url='/login/') #redirect when user is not logged in
 def keybordandmouse_list(request):
     cpus = keybordandmouse.objects.all()
     return render(request,'keybordandmouse.html',{'cpus':cpus})
 
+@login_required(login_url='/login/') #redirect when user is not logged in
 def etc_list(request):
     cpus = etc.objects.all()
     return render(request,'etc.html',{'cpus':cpus})
@@ -55,6 +72,7 @@ def etc_list(request):
 
 
 
+@login_required(login_url='/login/') #redirect when user is not logged in
 def add_gpu(request,table):
     add_template_name='addform.html'
 
@@ -133,6 +151,7 @@ def add_gpu(request,table):
 
 
 
+@login_required(login_url='/login/') #redirect when user is not logged in
 def update_gpu(request,table,id): #ok
     if table=='gpu':
         gpuone = gpu.objects.get(id=id)
@@ -226,6 +245,7 @@ def update_gpu(request,table,id): #ok
 
 
 
+@login_required(login_url='/login/') #redirect when user is not logged in
 def delete_gpu(request,table,id):
     redirect_page=''
     gpuone=''
@@ -293,6 +313,7 @@ def delete_gpu(request,id):
 
 
 
+@login_required(login_url='/login/') #redirect when user is not logged in
 def gpu_plusone(request,table,id):
     redirect_page=''
     gpuone=''
@@ -340,6 +361,7 @@ def gpu_plusone(request,table,id):
     messages.success(request,"item Number has been +1 successfully")
     return redirect(redirect_page)
 
+@login_required(login_url='/login/') #redirect when user is not logged in
 def gpu_minusone(request,table,id):
     redirect_page=''
     gpuone=''
