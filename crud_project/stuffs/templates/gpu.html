@@ -3,6 +3,7 @@
    
     {% block content %}
     <link rel="stylesheet"  href="{%  static  'stuffs/css/zebrastrepedtable.css'  %}">
+    <link rel="stylesheet"  href="{%  static  'stuffs/css/logp.css'  %}">
 
 
 
@@ -17,6 +18,7 @@
                 <th>issue</th>
                 <th>countt</th>
                 <th>etc info</th>
+                <th>log</th>
                 <th>  </th>
                 <th>  </th>
                 <th>  </th>
@@ -34,6 +36,7 @@
             <td>{{gpu.issue}}</td>
             <td>{{gpu.countt}}</td>
             <td>{{gpu.etc}}</td>
+            <td>{{ gpu.log }}</td>
             <td><a href="{% url 'gpu_plusone' table gpu.id %}" >+</a>&nbsp;&nbsp;&nbsp;<a href="{% url 'gpu_minusone' table gpu.id %}" >-</a></td>
             <td><a href="{% url 'delete_gpu' table gpu.id %}">delete</a></td>
             <td><a href="{% url 'update_gpu' table gpu.id  %}">update</a></td>
@@ -43,4 +46,7 @@
         {% endfor %}
         </table>
 </ul>
+
+
+
     {% endblock content %}

@@ -17,6 +17,7 @@
                 <th>issue</th>
                 <th>countt</th>
                 <th>etc info</th>
+                <th>log</th>
                 <th>  </th>
                 <th>  </th>
                 <th>  </th>
@@ -36,6 +37,7 @@
             <td>{{cpu.issue}}</td>
             <td>{{cpu.countt}}</td>
             <td>{{cpu.etc}}</td>
+            <td>{{cpu.log}}</td>
             <td><a href="{% url 'gpu_plusone' table cpu.id %}" >+</a>&nbsp;&nbsp;&nbsp;<a href="{% url 'gpu_minusone' table cpu.id %}" >-</a></td>
             <td><a href="{% url 'delete_gpu' table cpu.id %}">delete</a></td>
             <td><a href="{% url 'update_gpu' table cpu.id  %}">update</a></td>

@@ -1,9 +1,10 @@
 from django.forms.forms import Form
 from django.shortcuts import render,redirect
 from .models import gpu,cpu,power,hard,ram,fan,MOTHERBOARD,keybordandmouse,etc
-from .forms import adding_gpu_form ,adding_cpu_form,adding_power_form,adding_etc_form,adding_hard_form,adding_MOTHERBOARD_form,adding_fan_form,adding_MOTHERBOARD_form,adding_ram_form
+from .forms import adding_keybordandmouse_form ,adding_gpu_form ,adding_cpu_form,adding_power_form,adding_etc_form,adding_hard_form,adding_MOTHERBOARD_form,adding_fan_form,adding_MOTHERBOARD_form,adding_ram_form
 from django.contrib import messages
 from django.shortcuts import render
+from django.contrib.auth.models import User
 
 from django.contrib.auth.decorators import login_required
 
@@ -81,6 +82,9 @@ def add_gpu(request,table):
         redirect_url='list_stuffs'
         addpage_url='addingstuff.html'
         form = adding_gpu_form(request.POST or None)
+        #p = gpu(log='this is a tetst for log addin')#insert in to data base log
+        #p.save()
+        
 
     if table=='cpu':
         form = adding_cpu_form(request.POST or None)
@@ -113,7 +117,7 @@ def add_gpu(request,table):
         addpage_url='add_ram.html'
 
     if table=='keybordandmouse':
-        form = adding_gpu_form(request.POST or None)
+        form = adding_keybordandmouse_form(request.POST or None)
         redirect_url='keybordandmouse_list'
         addpage_url='add_keybordandmouse.html'
 
@@ -124,9 +128,15 @@ def add_gpu(request,table):
 
 
     if form.is_valid():
-        form.save()
+        task_list=form.save(commit=False)
         messages.success(request,"item has been added successfully")
-        #return  redirect('list_stuffs')
+        #add user name to log
+        
+        log_msg="[added by 1"+request.user.username+"]"
+        task_list.log = log_msg
+        task_list.save()
+
+        
         return  redirect(redirect_url)
     else:
         if request.method =='POST':
@@ -157,7 +167,15 @@ def update_gpu(request,table,id): #ok
         gpuone = gpu.objects.get(id=id)
         form = adding_gpu_form(request.POST or None, instance=gpuone)
         if form.is_valid():
-            form.save()
+            #add user name to log 
+            field_name = 'log'
+            field_value = getattr(gpuone, field_name)
+            task_list=form.save(commit=False)
+            log_msg="[edited by 1"+request.user.username+"]"+" | "+field_value
+            task_list.log = log_msg
+            task_list.save()
+            #end of adding msg to log
+            
             messages.success(request,"item has been updated successfully")
             return redirect('list_stuffs')
         else:
@@ -167,7 +185,14 @@ def update_gpu(request,table,id): #ok
         gpuone = cpu.objects.get(id=id)
         form = adding_cpu_form(request.POST or None, instance=gpuone)
         if form.is_valid():
-            form.save()
+                        #add user name to log 
+            field_name = 'log'
+            field_value = getattr(gpuone, field_name)
+            task_list=form.save(commit=False)
+            log_msg="[edited by 1"+request.user.username+"]"+" | "+field_value
+            task_list.log = log_msg
+            task_list.save()
+            #end of adding msg to log
             messages.success(request,"item has been updated successfully")
             return redirect('cpu_list')
         else:
@@ -177,7 +202,14 @@ def update_gpu(request,table,id): #ok
         gpuone = power.objects.get(id=id)
         form = adding_power_form(request.POST or None, instance=gpuone)
         if form.is_valid():
-            form.save()
+                        #add user name to log 
+            field_name = 'log'
+            field_value = getattr(gpuone, field_name)
+            task_list=form.save(commit=False)
+            log_msg="[edited by 1"+request.user.username+"]"+" | "+field_value
+            task_list.log = log_msg
+            task_list.save()
+            #end of adding msg to log
             messages.success(request,"item has been updated successfully")
             return redirect('power_list')
         else:
@@ -187,7 +219,14 @@ def update_gpu(request,table,id): #ok
         gpuone = hard.objects.get(id=id)
         form = adding_hard_form(request.POST or None, instance=gpuone)
         if form.is_valid():
-            form.save()
+                        #add user name to log 
+            field_name = 'log'
+            field_value = getattr(gpuone, field_name)
+            task_list=form.save(commit=False)
+            log_msg="[edited by 1"+request.user.username+"]"+" | "+field_value
+            task_list.log = log_msg
+            task_list.save()
+            #end of adding msg to log
             messages.success(request,"item has been updated successfully")
             return redirect('hard_list')
         else:
@@ -197,9 +236,16 @@ def update_gpu(request,table,id): #ok
         gpuone = MOTHERBOARD.objects.get(id=id)
         form = adding_MOTHERBOARD_form(request.POST or None, instance=gpuone)
         if form.is_valid():
-            form.save()
+                        #add user name to log 
+            field_name = 'log'
+            field_value = getattr(gpuone, field_name)
+            task_list=form.save(commit=False)
+            log_msg="[edited by 1"+request.user.username+"]"+" | "+field_value
+            task_list.log = log_msg
+            task_list.save()
+            #end of adding msg to log
             messages.success(request,"item has been updated successfully")
-            return redirect('motherboard_list')
+            return redirect('MOTHERBOARD_list')
         else:
             return render (request, 'gpu_edite.html' ,{'form':form , 'gpuone':gpuone} )
 
@@ -217,7 +263,14 @@ def update_gpu(request,table,id): #ok
         gpuone = ram.objects.get(id=id)
         form = adding_ram_form(request.POST or None, instance=gpuone)
         if form.is_valid():
-            form.save()
+                        #add user name to log 
+            field_name = 'log'
+            field_value = getattr(gpuone, field_name)
+            task_list=form.save(commit=False)
+            log_msg="[edited by 1"+request.user.username+"]"+" | "+field_value
+            task_list.log = log_msg
+            task_list.save()
+            #end of adding msg to log
             messages.success(request,"item has been updated successfully")
             return redirect('ram_list')
         else:
@@ -227,7 +280,14 @@ def update_gpu(request,table,id): #ok
         gpuone = keybordandmouse.objects.get(id=id)
         form = adding_keybordandmouse_form(request.POST or None, instance=gpuone)
         if form.is_valid():
-            form.save()
+                        #add user name to log 
+            field_name = 'log'
+            field_value = getattr(gpuone, field_name)
+            task_list=form.save(commit=False)
+            log_msg="[edited by 1"+request.user.username+"]"+" | "+field_value
+            task_list.log = log_msg
+            task_list.save()
+            #end of adding msg to log
             messages.success(request,"item has been updated successfully")
             return redirect('keybordandmouse_list')
         else:
@@ -237,7 +297,14 @@ def update_gpu(request,table,id): #ok
         gpuone = etc.objects.get(id=id)
         form = adding_etc_form(request.POST or None, instance=gpuone)
         if form.is_valid():
-            form.save()
+                        #add user name to log 
+            field_name = 'log'
+            field_value = getattr(gpuone, field_name)
+            task_list=form.save(commit=False)
+            log_msg="[edited by 1"+request.user.username+"]"+" | "+field_value
+            task_list.log = log_msg
+            task_list.save()
+            #end of adding msg to log
             messages.success(request,"item has been updated successfully")
             return redirect('etc_list')
         else:

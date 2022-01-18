@@ -8,6 +8,7 @@ class gpu(models.Model):
     graphics_card_ram_size = models.SmallIntegerField()
     series=models.CharField(max_length=10)
     computer_memory_type = models.CharField(max_length=10)
+    log=models.CharField(max_length=300)
 
     new = models.BooleanField(null=True, blank=True)#*
     issue = models.CharField(max_length=100, blank=True)#*
@@ -24,6 +25,9 @@ class cpu(models.Model):
     issue = models.CharField(max_length=100, blank=True)#*
     countt=models.SmallIntegerField()#*
     etc = models.CharField(max_length=100,blank=True)#*
+    log=models.CharField(max_length=300)
+
+    
 
     def __str__(self):
         return "cpu:"+self.series
@@ -36,6 +40,8 @@ class power(models.Model):
     issue = models.CharField(max_length=100, blank=True)#*
     countt=models.SmallIntegerField()#*
     etc = models.CharField(max_length=100,blank=True)#*
+    log=models.CharField(max_length=300)
+
 
     def __str__(self):
         return "power added"
@@ -48,6 +54,7 @@ class hard(models.Model):
     issue = models.CharField(max_length=100, blank=True)#*
     countt=models.SmallIntegerField()#*
     etc = models.CharField(max_length=100,blank=True)#*
+    log=models.CharField(max_length=300)
 
     def __str__(self):
         return "hard added"
@@ -59,6 +66,7 @@ class MOTHERBOARD(models.Model):
     issue = models.CharField(max_length=100, blank=True)#*
     countt=models.SmallIntegerField()#*
     etc = models.CharField(max_length=100,blank=True)#*
+    log=models.CharField(max_length=300)
 
     def __str__(self):
         return "MOTHERBOARD added"
@@ -70,6 +78,7 @@ class fan(models.Model):
     issue = models.CharField(max_length=100, blank=True)#*
     countt=models.SmallIntegerField()#*
     etc = models.CharField(max_length=100,blank=True)#*
+    log=models.CharField(max_length=300)
 
     def __str__(self):
         return "fan added"
@@ -82,6 +91,7 @@ class ram(models.Model):
     issue = models.CharField(max_length=100, blank=True)#*
     countt=models.SmallIntegerField()#*
     etc = models.CharField(max_length=100,blank=True)#*
+    log=models.CharField(max_length=300)
 
     def __str__(self):
         return "ram added"
@@ -94,6 +104,7 @@ class keybordandmouse(models.Model):
     issue = models.CharField(max_length=100, blank=True)#*
     countt=models.SmallIntegerField()#*
     etc = models.CharField(max_length=100,blank=True)#*
+    log=models.CharField(max_length=300)
 
     def __str__(self):
         return "keybordandmouse added"
@@ -105,6 +116,7 @@ class etc(models.Model):
     issue = models.CharField(max_length=100, blank=True)#*
     countt=models.SmallIntegerField()#*
     etc = models.CharField(max_length=100,blank=True)#*
+    log=models.CharField(max_length=300)
 
     def __str__(self):
         return "etc added"
