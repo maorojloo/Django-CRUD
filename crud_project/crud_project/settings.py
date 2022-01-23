@@ -103,11 +103,11 @@ elif DEBUG and (DATABASE=="PostgreSQL"):
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'demo_test',
-            'USER': 'postgres',
-            'PASSWORD': '77277874',
-            'HOST': 'localhost',
-            'PORT': '5432',
+            'NAME': secrets_json["PostgreSQL_NAME"] ,
+            'USER': secrets_json["PostgreSQL_USER"] ,
+            'PASSWORD': secrets_json["PostgreSQL_PASSWORD"] ,
+            'HOST': secrets_json["PostgreSQL_HOST"] ,
+            'PORT': secrets_json["PostgreSQL_PORT"] ,
         }
     }
 
@@ -170,7 +170,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT= 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = secrets_json["EMAIL_HOST_USER"]
-EMAIL_HOST_PASSWORD = secrets_json["EMAIL_HOST_PASSWORD"]
+EMAIL_HOST_PASSWORD = secrets_json["EMAIL_HOST_PASSWORD"] 
 
 
 
