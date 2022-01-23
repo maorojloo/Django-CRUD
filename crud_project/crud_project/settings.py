@@ -13,8 +13,16 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import os
 from pickle import TRUE
+import secrets
 import sqlite3
 from django.contrib.auth import login
+import json
+
+
+#loding json file
+f = open("C:\SECRETS\django_curl.json")# Opening JSON file
+secrets_json = json.load(f)# returns JSON object as
+f.close()# Closing file
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,7 +37,7 @@ SECRET_KEY = 'django-insecure-!xlw*ddtym6p2^2a)-%gwo-bc6aq%be4cb*1cu!7%*v3@gf5uc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = TRUE
 
-ALLOWED_HOSTS = ['127.0.0.1','169.171.33.6']
+ALLOWED_HOSTS = ['127.0.0.1','169.171.33.1']
 
 
 # Application definition
@@ -156,3 +164,14 @@ MEDIA_ROOT= os.path.join(BASE_DIR,'media')
 MEDIA_URL='/media/'
 
 ADMINS = [('ma.orojloo', 'ma.orojloo@gmail.com')]
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT= 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = secrets_json["EMAIL_HOST_USER"]
+EMAIL_HOST_PASSWORD = secrets_json["EMAIL_HOST_PASSWORD"]
+
+
+
+
