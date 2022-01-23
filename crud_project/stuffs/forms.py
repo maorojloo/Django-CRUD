@@ -12,8 +12,8 @@ class adding_gpu_form(forms.ModelForm):
     CHOICES = [('ddr1','ddr1'),('ddr2','ddr3'),('ddr3','ddr3'),('ddr4','ddr4'),('etc','etc')]
     computer_memory_type=forms.CharField(label='computer memory type', widget=forms.RadioSelect(choices=CHOICES))
 
-    CHOICES = [('new','new'),('stock','stock')]
-    new=forms.CharField(label='new or stok?', widget=forms.RadioSelect(choices=CHOICES))
+    CHOICES = [('True','True'),('False','False')]
+    new=forms.CharField(label='new or stock?', widget=forms.RadioSelect(choices=CHOICES))
 
     issue= forms.CharField(required=False)
     #countt= forms.CharField(required=False)
@@ -28,8 +28,8 @@ class adding_gpu_form(forms.ModelForm):
       
 class adding_cpu_form(forms.ModelForm):
     
-    CHOICES = [('new','new'),('stock','stock')]
-    new=forms.CharField(label='new or stok?', widget=forms.RadioSelect(choices=CHOICES))
+    CHOICES = [('True','True'),('False','False')]
+    new=forms.CharField(label='new or stock?', widget=forms.RadioSelect(choices=CHOICES))
     issue= forms.CharField(required=False)
     etc= forms.CharField(required=False)
     
@@ -40,8 +40,8 @@ class adding_cpu_form(forms.ModelForm):
 
 class adding_power_form(forms.ModelForm):
     
-    CHOICES = [('new','new'),('stock','stock')]
-    new=forms.CharField(label='new or stok?', widget=forms.RadioSelect(choices=CHOICES))
+    CHOICES = [('True','True'),('False','False')]
+    new=forms.CharField(label='new or stock?', widget=forms.RadioSelect(choices=CHOICES))
     issue= forms.CharField(required=False)
     etc= forms.CharField(required=False)
     is24pin = forms.BooleanField( required=False)
@@ -54,8 +54,8 @@ class adding_power_form(forms.ModelForm):
 
 class adding_power_form(forms.ModelForm):
     
-    CHOICES = [('new','new'),('stock','stock')]
-    new=forms.CharField(label='new or stok?', widget=forms.RadioSelect(choices=CHOICES))
+    CHOICES = [('True','True'),('False','False')]
+    new=forms.CharField(label='new or stock?', widget=forms.RadioSelect(choices=CHOICES))
     issue= forms.CharField(required=False)
     etc= forms.CharField(required=False)
     is24pin = forms.BooleanField( required=False)
@@ -67,8 +67,8 @@ class adding_power_form(forms.ModelForm):
 
 class adding_hard_form(forms.ModelForm):
     
-    CHOICES = [('new','new'),('stock','stock')]
-    new=forms.CharField(label='new or stok?', widget=forms.RadioSelect(choices=CHOICES))
+    CHOICES = [('True','True'),('False','False')]
+    new=forms.CharField(label='new or stock?', widget=forms.RadioSelect(choices=CHOICES))
     issue= forms.CharField(required=False)
     etc= forms.CharField(required=False)
     CHOICES = [('hdd','hdd'),('ssd','ssd'),('hdd 2.5 inch','hdd 2.5 inch'),('ssd 2.5 inch','ssd 2.5 inch'),('etc','etc')]
@@ -83,8 +83,8 @@ class adding_hard_form(forms.ModelForm):
 
 class adding_MOTHERBOARD_form(forms.ModelForm):
     
-    CHOICES = [('new','new'),('stock','stock')]
-    new=forms.CharField(label='new or stok?', widget=forms.RadioSelect(choices=CHOICES))
+    CHOICES = [('True','True'),('False','False')]
+    new=forms.CharField(label='new or stock?', widget=forms.RadioSelect(choices=CHOICES))
     issue= forms.CharField(required=False)
     etc= forms.CharField(required=False)
     
@@ -97,8 +97,8 @@ class adding_MOTHERBOARD_form(forms.ModelForm):
 
 class adding_fan_form(forms.ModelForm):
     
-    CHOICES = [('new','new'),('stock','stock')]
-    new=forms.CharField(label='new or stok?', widget=forms.RadioSelect(choices=CHOICES))
+    CHOICES = [('True','True'),('False','False')]
+    new=forms.CharField(label='new or stock?', widget=forms.RadioSelect(choices=CHOICES))
     issue= forms.CharField(required=False)
     etc= forms.CharField(required=False)
 
@@ -110,8 +110,8 @@ class adding_fan_form(forms.ModelForm):
 
 class adding_power_form(forms.ModelForm):
     
-    CHOICES = [('new','new'),('stock','stock')]
-    new=forms.CharField(label='new or stok?', widget=forms.RadioSelect(choices=CHOICES))
+    CHOICES = [('True','True'),('False','False')]
+    new=forms.CharField(label='new or stock?', widget=forms.RadioSelect(choices=CHOICES))
     issue= forms.CharField(required=False)
     etc= forms.CharField(required=False)
     is24pin = forms.BooleanField( required=False)
@@ -124,8 +124,8 @@ class adding_power_form(forms.ModelForm):
 
 class adding_power_form(forms.ModelForm):
     
-    CHOICES = [('new','new'),('stock','stock')]
-    new=forms.CharField(label='new or stok?', widget=forms.RadioSelect(choices=CHOICES))
+    CHOICES = [('True','True'),('False','False')]
+    new=forms.CharField(label='new or stock?', widget=forms.RadioSelect(choices=CHOICES))
     issue= forms.CharField(required=False)
     etc= forms.CharField(required=False)
     is24pin = forms.BooleanField( required=False)
@@ -137,8 +137,8 @@ class adding_power_form(forms.ModelForm):
 
 class adding_ram_form(forms.ModelForm):
     
-    CHOICES = [('new','new'),('stock','stock')]
-    new=forms.CharField(label='new or stok?', widget=forms.RadioSelect(choices=CHOICES))
+    CHOICES = [('True','True'),('False','False')]
+    new=forms.CharField(label='new or stock?', widget=forms.RadioSelect(choices=CHOICES))
     issue= forms.CharField(required=False)
     etc= forms.CharField(required=False)
     CHOICES = [('ddr1','ddr1'),('ddr2','ddr3'),('ddr3','ddr3'),('ddr4','ddr4'),('etc','etc')]
@@ -151,8 +151,8 @@ class adding_ram_form(forms.ModelForm):
      
 class adding_etc_form(forms.ModelForm):
     
-    CHOICES = [('new','new'),('stock','stock')]
-    new=forms.CharField(label='new or stok?', widget=forms.RadioSelect(choices=CHOICES))
+    CHOICES = [('True','True'),('False','False')]
+    new=forms.CharField(label='new or stock?', widget=forms.RadioSelect(choices=CHOICES))
     issue= forms.CharField(required=False)
     etc= forms.CharField(required=False)
     
@@ -165,8 +165,8 @@ class adding_etc_form(forms.ModelForm):
 
 class adding_keybordandmouse_form(forms.ModelForm):
     
-    CHOICES = [('new','new'),('stock','stock')]
-    new=forms.CharField(label='new or stok?', widget=forms.RadioSelect(choices=CHOICES))
+    CHOICES = [('True','True'),('False','False')]
+    new=forms.CharField(label='new or stock?', widget=forms.RadioSelect(choices=CHOICES))
     issue= forms.CharField(required=False)
     etc= forms.CharField(required=False)
     CHOICES = [('vga','vga'),('usb','usb')]

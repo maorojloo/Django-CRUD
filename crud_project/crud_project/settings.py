@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+from pickle import TRUE
+import sqlite3
 from django.contrib.auth import login
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,9 +27,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-!xlw*ddtym6p2^2a)-%gwo-bc6aq%be4cb*1cu!7%*v3@gf5uc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = TRUE
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1','169.171.33.6']
 
 
 # Application definition
@@ -78,14 +80,28 @@ WSGI_APPLICATION = 'crud_project.wsgi.application'
 
 
 # Database
+DATABASE="PostgreSQL"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+if DEBUG and (DATABASE=="sqlite3"):
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+
+elif DEBUG and (DATABASE=="PostgreSQL"):
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'demo_test',
+            'USER': 'postgres',
+            'PASSWORD': '77277874',
+            'HOST': 'localhost',
+            'PORT': '5432',
+        }
+    }
 
 
 # Password validation
@@ -138,3 +154,5 @@ LOGIN_URL = 'login'
 MEDIA_ROOT= os.path.join(BASE_DIR,'media')
 
 MEDIA_URL='/media/'
+
+ADMINS = [('ma.orojloo', 'ma.orojloo@gmail.com')]
