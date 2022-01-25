@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{%  load static %}
+   
+    {% block content %}
+    <link rel="stylesheet"  href="{%  static  'stuffs/css/zebrastrepedtable.css'  %}">
+    <link rel="stylesheet"  href="{%  static  'stuffs/css/logp.css'  %}">
+
+
+
+    
+        <table>
+            <tr>
+                <th></th>
+                <th>graphics card ram size</th>
+                <th>series</th>
+                <th>computer memory type</th>
+                <th>new?</th>
+                <th>issue</th>
+                <th>countt</th>
+                <th>etc info</th>
+                <th>log</th>
+                <th>  </th>
+                <th>  </th>
+                <th>  </th>
+                </tr>
+        
+        {% for gpu in gpus  %}
+        {% with table='gpu' %}
+            <tr>
+            
+            <td>-</td>
+            <td>{{gpu.graphics_card_ram_size}}</td>
+            <td>{{gpu.series}}</td>
+            <td>{{gpu.computer_memory_type}}</td>
+            <td>{{gpu.new}}</td>
+            <td>{{gpu.issue}}</td>
+            <td>{{gpu.countt}}</td>
+            <td>{{gpu.etc}}</td>
+            <td>{{ gpu.log }}</td>
+            <td><a href="{% url 'gpu_plusone' table gpu.id %}" >+</a>&nbsp;&nbsp;&nbsp;<a href="{% url 'gpu_minusone' table gpu.id %}" >-</a></td>
+            <td><a href="{% url 'delete_gpu' table gpu.id %}">delete</a></td>
+            <td><a href="{% url 'update_gpu' table gpu.id  %}">update</a></td>
+                     
+            </tr>
+            {% endwith %}
+        {% endfor %}
+        </table>
+</ul>
+
+
+
+    {% endblock content %}

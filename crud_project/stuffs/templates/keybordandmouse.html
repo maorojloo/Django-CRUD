@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{%  load static %}
+   
+    {% block content %}
+    <link rel="stylesheet"  href="{%  static  'stuffs/css/zebrastrepedtable.css'  %}">
+
+
+
+    
+        <table>
+            <tr>
+                <th></th>
+                
+                <th>Keybordormouse</th>
+                <th>Vgaorusb</th>
+                <th>new?</th>
+                <th>issue</th>
+                <th>countt</th>
+                <th>etc info</th>
+                <th>log</th>
+                <th>  </th>
+                <th>  </th>
+                <th>  </th>
+                </tr>
+        
+        {% for cpu in cpus  %}
+        {% with table='keybordandmouse' %}
+        
+            <tr>
+            
+            <td>-</td>
+            
+            <td>{{cpu.keybordormouse}}</td>
+            <td>{{cpu.vgaorusb}}</td>
+
+            <td>{{cpu.new}}</td>
+            <td>{{cpu.issue}}</td>
+            <td>{{cpu.countt}}</td>
+            <td>{{cpu.etc}}</td>
+            <td>{{cpu.log}}</td>
+            <td><a href="{% url 'gpu_plusone' table cpu.id %}" >+</a>&nbsp;&nbsp;&nbsp;<a href="{% url 'gpu_minusone' table cpu.id %}" >-</a></td>
+            <td><a href="{% url 'delete_gpu' table cpu.id %}">delete</a></td>
+            <td><a href="{% url 'update_gpu' table cpu.id  %}">update</a></td>
+                    
+            </tr>
+        {% endwith %}
+        {% endfor %}
+        </table>
+</ul>
+    {% endblock content %}
