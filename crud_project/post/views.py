@@ -11,13 +11,30 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.shortcuts import render,redirect
 from.forms import post_add_form
-
-
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+import requests
+ 
+"""
 def home (request):
     context={'postss':post.objects.order_by('-date_posted')}
    
     return render(request, 'post/home.html',context)
+"""
 
+
+
+# api
+def api(request):
+    response=requests.get('https://api.covid19api.com/countries').json()
+    return render(request,'api.html',{'response':response})
+
+
+
+
+
+
+@method_decorator(login_required, name='dispatch')
 class Postlistview(ListView):
     model= post
     template_name = 'post/home.html' #app/template.html
