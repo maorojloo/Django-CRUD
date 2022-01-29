@@ -5,6 +5,14 @@ from .forms import adding_keybordandmouse_form ,adding_gpu_form ,adding_cpu_form
 from django.contrib import messages
 from django.shortcuts import render
 from django.contrib.auth.models import User
+# Rest APi 
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status, viewsets , filters
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.settings import api_settings
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from django.contrib.auth.decorators import login_required
 
@@ -22,6 +30,57 @@ def home_page(request):
     return render(request, 'home.html')
 
 
+class gpuViewSet(viewsets.ModelViewSet):
+    serializer_class = serializers.gpuSerializer
+    queryset = gpu.objects.all()
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+    
+
+class cpuViewSet(viewsets.ModelViewSet):
+    serializer_class = serializers.cpuSerializer
+    queryset = cpu.objects.all()
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+
+class MOTHERBOARDViewSet(viewsets.ModelViewSet):
+    serializer_class = serializers.MOTHERBOARDSerializer
+    queryset = MOTHERBOARD.objects.all()
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+
+class etcViewSet(viewsets.ModelViewSet):
+    serializer_class = serializers.etcSerializer
+    queryset = etc.objects.all()
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+
+
+class fanViewSet(viewsets.ModelViewSet):
+    serializer_class = serializers.fanSerializer
+    queryset = fan.objects.all()
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+
+
+class keybordandmouseViewSet(viewsets.ModelViewSet):
+    serializer_class = serializers.keybordandmouseSerializer
+    queryset = keybordandmouse.objects.all()
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+
+class hardViewSet(viewsets.ModelViewSet):
+    serializer_class = serializers.hardSerializer
+    queryset = hard.objects.all()
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+
+class ramViewSet(viewsets.ModelViewSet):
+    serializer_class = serializers.ramSerializer
+    queryset = ram.objects.all()
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+ 
 
 # Create your views here.
 @login_required(login_url='/login/') #redirect when user is not logged in

@@ -179,3 +179,8 @@ EMAIL_HOST_PASSWORD = secrets_json["EMAIL_HOST_PASSWORD"]
 
 
 
+# Rest 
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}
