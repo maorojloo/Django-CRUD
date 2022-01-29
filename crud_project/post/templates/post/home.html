@@ -3,7 +3,18 @@
 {%  load static %}
 
 {% block content %}
-<br/>
+
+
+
+<hr/>
+{% for price in prices %}
+<button type="button" class="btn btn-dark">{{price}}</button>
+<strong></strong>
+{% endfor %}
+
+
+<hr/>
+
         {% for post in postss%}
         <div class="card border-success mb-3" style="max-width: 18rem;">
             <div class="card-header bg-transparent border-success">By {{post.author}} <small>{{post.date_posted|date:"Y/F/d"}}</small></div>

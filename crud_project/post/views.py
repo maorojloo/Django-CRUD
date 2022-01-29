@@ -15,24 +15,31 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 import requests
  
-"""
+
 def home (request):
-    context={'postss':post.objects.order_by('-date_posted')}
+    response=requests.get('http://api.coinlayer.com/api/live?access_key=4d254207b3d761236f8aa20a4a1a1b70').json()
+    rates=response["rates"]
+
+
+
+    btcp="BTC="+str("{:.2f}".format(rates["BTC"]))+"$"
+    etcp="ETC="+str("{:.2f}".format(rates["ETC"]))+"$"
+    ltcp="LTC="+str("{:.2f}".format(rates["LTC"]))+"$"
+    ustdp="USDT="+str("{:.2f}".format(rates["USDT"]))+"$"
+    bnbp="BNB="+str("{:.2f}".format(rates["BNB"]))+"$"
+    adap="ADA="+str("{:.2f}".format(rates["ADA"]))+"$"
+    eosp="EOS="+str("{:.2f}".format(rates["EOS"]))+"$"
+    xrpp="XRP="+str("{:.2f}".format(rates["XRP"]))+"$"
+    #avaxp="AVAX="+str("{:.2f}".format(rates["AVAX"]))+"$"
+
+    prices=[btcp,etcp,ltcp,ustdp,bnbp,adap,eosp,xrpp]
+
+    context={'postss':post.objects.order_by('-date_posted'),'response':response,"prices":prices}
    
     return render(request, 'post/home.html',context)
+
+
 """
-
-
-
-# api
-def api(request):
-    response=requests.get('https://api.covid19api.com/countries').json()
-    return render(request,'api.html',{'response':response})
-
-
-
-
-
 
 @method_decorator(login_required, name='dispatch')
 class Postlistview(ListView):
@@ -41,6 +48,7 @@ class Postlistview(ListView):
     context_object_name = 'postss'
     #ordered_tasks = TaskItem.objects.order_by('-created_date')
     ordering= ['-date_posted']
+    """
 
 @login_required(login_url='/login/') #redirect when user is not logged in
 def post_delete(request,id):

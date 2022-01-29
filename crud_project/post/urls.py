@@ -1,18 +1,17 @@
 from django.urls import path
 from django.urls.resolvers import URLPattern
-from .views import Postlistview,post_delete,post_add,post_update,api
+from .views import post_delete,post_add,post_update,home#,Postlistview
 
  
 urlpatterns = [
-    path('',Postlistview.as_view(), name='home_page' ),
-    path('',Postlistview.as_view(), name='postـhome' ),
+    path('',home, name='postـhome' ),
+    #path('',Postlistview.as_view(), name='postـhome' ),
     path('post/delete/<int:id>/',post_delete,name='post-delete'),
     path('post/add/',post_add,name='post_add'),
     path('post/update/<int:id>/',post_update,name='post_update'),
 
 
-    path('api/',api,name='api'),
-
+    
    
     
 ]
