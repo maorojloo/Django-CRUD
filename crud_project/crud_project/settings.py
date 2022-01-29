@@ -53,6 +53,9 @@ INSTALLED_APPS = [
     'users',#to login and log out
     'crispy_forms',
     'post',#posting
+    # APi 
+    'rest_framework',
+
 ]
 
 MIDDLEWARE = [
