@@ -3,10 +3,10 @@
 {%  load static %}
 
 {% block content %}
-
+<br/>
 <center>
 <div class="card text-white bg-secondary mb-3" style="max-width: 30rem;">
-    <div class="card-header">hello {{ user.username }}</div>
+    <div class="card-header">hello {{ user.username }} <img class="rounded-circle account-img" width="50" height="50" src="{{ user.profile.image.url }}"> </div>
     <div class="card-body">
       <h5 class="card-title">email : {{ user.email }}</h5>
       <h5 class="card-title">First name : {{ user.first_name }}</h5>

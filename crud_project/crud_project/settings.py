@@ -37,7 +37,7 @@ SECRET_KEY = 'django-insecure-!xlw*ddtym6p2^2a)-%gwo-bc6aq%be4cb*1cu!7%*v3@gf5uc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = TRUE
 
-ALLOWED_HOSTS = ['127.0.0.1','169.171.33.1']
+ALLOWED_HOSTS = ['127.0.0.1','169.171.33.1','192.168.0.242']
 
 
 # Application definition
@@ -157,13 +157,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-LOGIN_REDIRECT_URL = 'home_page'
+LOGIN_REDIRECT_URL = 'postـhome'
 
 LOGIN_URL = 'login'
 
-MEDIA_ROOT= os.path.join(BASE_DIR,'media')
 
-MEDIA_URL='/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # Directory where uploaded media is saved.
+MEDIA_URL = '/media/' # Public URL at the browser
+
 
 ADMINS = [('ma.orojloo', 'ma.orojloo@gmail.com')]
 

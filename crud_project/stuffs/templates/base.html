@@ -155,7 +155,14 @@
 	        	
 
             {% if user.is_authenticated%}
-	          <li class="nav-item"><a href="" style="color: green;" class="nav-link">Hello,{{ user.username }}</a></li>
+	          <li class="nav-item"><a href="" style="color: green;" class="nav-link">Hello,{{ user.username }}  </a> </li> 
+
+            {% if user.profile.image.url %}
+            <img class="rounded-circle account-img" width="50" height="50" src="{{ user.profile.image.url }}">
+            {% else %}
+            <img class="rounded-circle account-img" width="50" height="50" src="{% static 'stuffs/img/default.png' %}" alt="Upvote">
+            {% endif %}
+
             {% endif %}
 	        </ul>
 	      </div>

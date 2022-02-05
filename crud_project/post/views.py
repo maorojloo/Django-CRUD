@@ -14,27 +14,43 @@ from.forms import post_add_form
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 import requests
- 
+from pycoingecko import CoinGeckoAPI
 
+
+
+
+coinapi = CoinGeckoAPI() 
+@login_required(login_url='/login/') #redirect when user is not logged in
 def home (request):
-    response=requests.get('http://api.coinlayer.com/api/live?access_key=4d254207b3d761236f8aa20a4a1a1b70').json()
-    rates=response["rates"]
+    
+    rates = coinapi.get_price(ids=['bitcoin', 'ethereum','Ethereum','Litecoin','Cardano','Polkadot','Stellar','Dogecoin','Binance Coin','Tether','Solana'], vs_currencies='usd', include_24hr_change=True)
+
+
+    #'binancecoin': {'usd': 422.31, 'usd_24h_change': 11.731906663727484}
+
+
+   
+
+    markt_info=[{"BTC: "+str(rates["bitcoin"]["usd"]):float("{:.2f}".format(rates["bitcoin"]["usd_24h_change"]))},
+                {"ETH: "+str(rates["ethereum"]["usd"]):float("{:.2f}".format(rates["ethereum"]["usd_24h_change"]))},
+                {"LTC: "+str(rates["litecoin"]["usd"]):float("{:.2f}".format(rates["litecoin"]["usd_24h_change"]))},
+                {"ADA: "+str(rates["cardano"]["usd"]):float("{:.2f}".format(rates["cardano"]["usd_24h_change"]))},
+                {"DOT: "+str(rates["polkadot"]["usd"]):float("{:.2f}".format(rates["polkadot"]["usd_24h_change"]))},
+                {"str: "+str(rates["stellar"]["usd"]):float("{:.2f}".format(rates["stellar"]["usd_24h_change"]))},
+                {"DOGE: "+str(rates["dogecoin"]["usd"]):float("{:.2f}".format(rates["dogecoin"]["usd_24h_change"]))},
+                {"BNB: "+str(rates["binancecoin"]["usd"]):float("{:.2f}".format(rates["binancecoin"]["usd_24h_change"]))},
+                {"USDT: "+str(rates["tether"]["usd"]):float("{:.2f}".format(rates["tether"]["usd_24h_change"]))},
+                {"SOL: "+str(rates["solana"]["usd"]):float("{:.2f}".format(rates["solana"]["usd_24h_change"]))},
+    
+    
+    
+    
+    ]
 
 
 
-    btcp="BTC="+str("{:.2f}".format(rates["BTC"]))+"$"
-    etcp="ETC="+str("{:.2f}".format(rates["ETC"]))+"$"
-    ltcp="LTC="+str("{:.2f}".format(rates["LTC"]))+"$"
-    ustdp="USDT="+str("{:.2f}".format(rates["USDT"]))+"$"
-    bnbp="BNB="+str("{:.2f}".format(rates["BNB"]))+"$"
-    adap="ADA="+str("{:.2f}".format(rates["ADA"]))+"$"
-    eosp="EOS="+str("{:.2f}".format(rates["EOS"]))+"$"
-    xrpp="XRP="+str("{:.2f}".format(rates["XRP"]))+"$"
-    #avaxp="AVAX="+str("{:.2f}".format(rates["AVAX"]))+"$"
 
-    prices=[btcp,etcp,ltcp,ustdp,bnbp,adap,eosp,xrpp]
-
-    context={'postss':post.objects.order_by('-date_posted'),'response':response,"prices":prices}
+    context={'postss':post.objects.order_by('-date_posted'),"markt_info":markt_info}
    
     return render(request, 'post/home.html',context)
 

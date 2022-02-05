@@ -10,3 +10,5 @@ class UserRegisterForm (UserCreationForm):
     class meta:
         model=User
         fields=['username','Email','password1','password2']
+
+

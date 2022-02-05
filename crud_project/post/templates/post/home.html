@@ -6,14 +6,25 @@
 
 
 
-<hr/>
-{% for price in prices %}
-<button type="button" class="btn btn-dark">{{price}}</button>
+{% for pricee in markt_info %}
+{% for choice in pricee.items %} 
+
+
+{% if choice.1 >= 0|add:"0" %}
+<button type="button" class="btn btn-success" style=" padding: 2px;margin:-3px;">{{choice.0}}<small style="font-size: 12px;" >(+{{choice.1}})</small></button>
+{% elif choice.1 <= 0|add:"0" %}
+
+<button type="button" class="btn btn-danger" style=" padding: 2px;margin:-3px;">{{choice.0}}<small style="font-size: 12px;" >({{choice.1}})</small></button>
+{% else %}
+<button type="button" class="btn btn-dark">ERR</button>
+{% endif %}
+
 <strong></strong>
+{% endfor %}
 {% endfor %}
 
 
-<hr/>
+
 
         {% for post in postss%}
         <div class="card border-success mb-3" style="max-width: 18rem;">
