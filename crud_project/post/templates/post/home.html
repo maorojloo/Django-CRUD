@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{%  load static %}
+
+{% block content %}
+
+
+
+{% for pricee in markt_info %}
+{% for choice in pricee.items %} 
+
+
+{% if choice.1 >= 0|add:"0" %}
+<button type="button" class="btn btn-success" style=" padding: 2px;margin:-3px;">{{choice.0}}<small style="font-size: 12px;" >(+{{choice.1}})</small></button>
+{% elif choice.1 <= 0|add:"0" %}
+
+<button type="button" class="btn btn-danger" style=" padding: 2px;margin:-3px;">{{choice.0}}<small style="font-size: 12px;" >({{choice.1}})</small></button>
+{% else %}
+<button type="button" class="btn btn-dark">ERR</button>
+{% endif %}
+
+<strong></strong>
+{% endfor %}
+{% endfor %}
+
+
+
+
+        {% for post in postss%}
+        <div class="card border-success mb-3" style="max-width: 18rem;">
+            <div class="card-header bg-transparent border-success">By {{post.author}} <small>{{post.date_posted|date:"Y/F/d"}}</small></div>
+            <div class="card-body text-success">
+              <h5 class="card-title" >{{post.title}}</h5>
+              <p class="card-text" style="color: black;">{{post.content}}<br/><br/><small style="color: darkgrey;" >{{post.log}}</small></p>
+            </div>
+            <div class="card-footer bg-transparent border-success">
+              {% if user.username == post.author %}
+              <a href="{% url 'post_update' post.id %}"><button type="button" class="btn btn-warning">update</button></a> 
+              <a href="{% url 'post-delete'  post.id %}"><button type="button" class="btn btn-danger">delete</button></a>
+              {% endif %}
+               {% if post.attachedfile %}
+              <a href="{{ post.attachedfile.url }}"><button type="button" class="btn btn-info">Dl file</button></a>
+              
+              {% endif %}
+            </div>
+          </div>
+          {% endfor %}
+{% endblock content %}

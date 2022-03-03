@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{%  load static %}
+{% block content %}
+
+
+
+<link rel="stylesheet"  href="{%  static  'stuffs/css/zebrastrepedtable.css'  %}">
+<script src="{%  static  'stuffs/js/js_for_tabels.js'  %}"></script> 
+
+
+
+<table>
+    <tr>
+        <th></th>
+        
+        <th>name</th>
+        
+        <th>new?</th>
+        <th>issue</th>
+        <th>countt</th>
+        <th>etc info</th>
+        <th>log</th>
+        <th>  </th>
+        <th>  </th>
+        <th>  </th>
+        </tr>
+
+{% for object in object_list  %}
+{% with table='etc' %}
+
+    <tr>
+    
+    <td>-</td>
+    
+    <td>{{object.name}}</td>
+    
+
+    <td>{{object.new}}</td>
+    <td>{{object.issue}}</td>
+    <td>{{object.countt}}</td>
+    <td>{{object.etc}}</td>
+    <td><button onclick="show_log_Function('{{ object.log }} ')" class="btn btn-primary btn-sm" >show log</button></td>
+    <td><a href="{% url 'gpu_plusone' table object.id %}" >+</a>&nbsp;&nbsp;&nbsp;<a href="{% url 'gpu_minusone' table object.id %}" >-</a></td>
+    <td><a href="{% url 'delete_gpu' table object.id %}">delete</a></td>
+    <td><a href="{% url 'update_gpu' table object.id  %}">update</a></td>
+            
+    </tr>
+{% endwith %}
+{% endfor %}
+</table>
+</ul>
+{% endblock content %}
+
+

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{%  load static %}
+
+
+    {% block content %}
+    <link rel="stylesheet"  href="{%  static  'stuffs/css/zebrastrepedtable.css'  %}">
+    <script src="{%  static  'stuffs/js/js_for_tabels.js'  %}"></script> 
+
+
+    
+    <table id="myTable">
+            <tr>
+                <th></th>
+                
+                <th onclick="sortTable(1)" >series</th>
+                <th onclick="sortTable(2)" >new?</th>
+                <th onclick="sortTable(3)" >issue</th>
+                <th onclick="sortTable(4)" >countt</th>
+                <th onclick="sortTable(5)" >etc info</th>
+                <th>log</th>
+                <th>  </th>
+                <th>  </th>
+                <th>  </th>
+                </tr>
+        {% with num1=0 %}
+        {{ num1|add:1}}
+        
+        {% for cpu in cpus  %}
+        {% with table='cpu' %}
+        
+            <tr>
+            
+            <td>{{ num1|add:1}}</td>
+            
+            <td>{{cpu.series}}</td>
+            
+
+            <td>{{cpu.new}}</td>
+            <td>{{cpu.issue}}</td>
+            <td>{{cpu.countt}}</td>
+            <td>{{cpu.etc}}</td>
+            <td><button onclick="show_log_Function('{{ cpu.log }} ')" class="btn btn-primary btn-sm" >show log</button></td>
+            <td><a href="{% url 'gpu_plusone' table cpu.id %}" >+</a>&nbsp;&nbsp;&nbsp;<a href="{% url 'gpu_minusone' table cpu.id %}" >-</a></td>
+            <td><a href="{% url 'delete_gpu' table cpu.id %}">delete</a></td>
+            <td><a href="{% url 'update_gpu' table cpu.id  %}">update</a></td>
+                     
+            </tr>
+        {% endwith %}
+        {% endfor %}
+        {% endwith %}
+        </table>
+</ul>
+    {% endblock content %}

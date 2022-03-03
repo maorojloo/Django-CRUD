@@ -1,0 +1,142 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-13 17:13+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: .\stuffs\templates\base.html:21
+msgid "Store"
+msgstr "انبار"
+
+#: .\stuffs\templates\base.html:54
+msgid "Home"
+msgstr "خانه"
+
+#: .\stuffs\templates\base.html:60
+msgid "Posts"
+msgstr "اعلانات"
+
+#: .\stuffs\templates\base.html:62
+msgid "add post"
+msgstr "افزون پست به صفحه اعلانات"
+
+#: .\stuffs\templates\base.html:68
+msgid "gpu"
+msgstr "کارت گرافیک"
+
+#: .\stuffs\templates\base.html:70
+msgid "add gpu"
+msgstr "افزودن کارت گرافیک"
+
+#: .\stuffs\templates\base.html:77
+msgid "cpu"
+msgstr "سی پی یو"
+
+#: .\stuffs\templates\base.html:79
+msgid "add cpu"
+msgstr "افزودن سی پی یو"
+
+#: .\stuffs\templates\base.html:86
+msgid "power"
+msgstr "پاور"
+
+#: .\stuffs\templates\base.html:88
+msgid "add power"
+msgstr "افزودن پاور"
+
+#: .\stuffs\templates\base.html:95
+msgid "hard"
+msgstr "هارد"
+
+#: .\stuffs\templates\base.html:97
+msgid "add hard"
+msgstr "افزودن هارد"
+
+#: .\stuffs\templates\base.html:104
+msgid "MOTHERBOARD"
+msgstr "مادر برد"
+
+#: .\stuffs\templates\base.html:106
+msgid "add MOTHERBOARD"
+msgstr "افزودن مادر برد"
+
+#: .\stuffs\templates\base.html:113
+msgid "fan"
+msgstr "فن"
+
+#: .\stuffs\templates\base.html:115
+msgid "add fan"
+msgstr "افزودن فن"
+
+#: .\stuffs\templates\base.html:122
+msgid "ram"
+msgstr "رم"
+
+#: .\stuffs\templates\base.html:124
+msgid "add ram"
+msgstr "افزودن رم"
+
+#: .\stuffs\templates\base.html:131
+msgid "keybordandmouse"
+msgstr "کیبرد و موس"
+
+#: .\stuffs\templates\base.html:133
+msgid "add keybordandmouse"
+msgstr "افزودن کیبرد و موس"
+
+#: .\stuffs\templates\base.html:140
+msgid "etc"
+msgstr ""
+
+#: .\stuffs\templates\base.html:142
+msgid "add etc"
+msgstr ""
+
+#: .\stuffs\templates\base.html:153
+msgid "logout"
+msgstr "خروج از حساب"
+
+#: .\stuffs\templates\base.html:155
+msgid "login"
+msgstr "ورود به حساب"
+
+#: .\stuffs\templates\base.html:162
+msgid "Hello"
+msgstr "سلام"
+
+#: .\stuffs\templates\base.html:207
+msgid "About"
+msgstr "درباره وبسایت"
+
+#: .\stuffs\templates\base.html:208
+msgid "it's just a simple site ti manage store"
+msgstr ""
+
+#: .\stuffs\templates\base.html:211
+msgid "project source"
+msgstr "کد متن پروژه "
+
+#: .\stuffs\templates\base.html:244
+msgid "Copyright"
+msgstr "حق چاپ محفوض است"
+
+#: .\stuffs\templates\base.html:244
+msgid "2022"
+msgstr "1400"
+
+#~ msgid "hello brother "
+#~ msgstr "سلام داداش"
