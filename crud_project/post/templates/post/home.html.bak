@@ -9,7 +9,7 @@
 {% for pricee in markt_info %}
 {% for choice in pricee.items %} 
 
-<strong style="width:100%;">
+<strong>
 {% if choice.1 >= 0|add:"0" %}
 <button  type="button" class="btn btn-success" style=" padding: 2px;margin:-3px; flex-grow:1;">{{choice.0}}<small style="font-size: 12px;" >(+{{choice.1}})</small></button>
 {% elif choice.1 <= 0|add:"0" %}
